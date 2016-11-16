@@ -5,6 +5,7 @@
  */
 package Framework;
 
+import DataModel.StudentDataModel;
 import Server.UserSessionBeanRemote;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -34,9 +35,9 @@ public class UserManager {
     {
         this.lookupUserSessionBeanRemote().insertUser(userid, firstName, lastName, email, phoneNumber, username, password);
     }
-
     
-
-
+    public StudentDataModel getStudent(String id){
+        return this.lookupUserSessionBeanRemote().getStudent(id);
+    }
     
 }

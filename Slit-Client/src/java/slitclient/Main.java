@@ -6,9 +6,11 @@
 package slitclient;
 
 import DataModel.ModuleDataModel;
+import DataModel.StudentDataModel;
 import Framework.ModuleManager;
 import Framework.TeacherManager;
 import Framework.UserManager;
+import java.util.Date;
 
 /**
  *
@@ -38,6 +40,15 @@ public class Main {
         if(outPutModel.getModuleID() != null){
             System.out.println(outPutModel.getModuleName());
         }
+        
+        StudentDataModel outPutStudent = userManager.getStudent("10");
+        
+        if(outPutStudent.getUserid() != 0){
+            System.out.println(outPutStudent.getUserid());
+        
+        }
+        
+        
     }
     
 }

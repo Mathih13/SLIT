@@ -1,9 +1,10 @@
+package GUI;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package GUI;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -14,7 +15,7 @@ import javafx.fxml.Initializable;
  *
  * @author Terje
  */
-public class ModulgodkjenningController implements Initializable {
+public class ModuleApprovalController implements Initializable {
 
     /**
      * Initializes the controller class.

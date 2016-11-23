@@ -82,7 +82,7 @@ public class ModuleSessionBean implements ModuleSessionBeanRemote {
         moduleDataModel.setModuleID(modul.getModuleID());
         moduleDataModel.setModuleName(modul.getModuleName());
         moduleDataModel.setRequierments(modul.getRequierments());
-        
+            
         if(modul.getTeacherID() != null) {
             moduleDataModel.setTeacherID(modul.getTeacherID().getTeacherID());
         }

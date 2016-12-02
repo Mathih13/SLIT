@@ -8,7 +8,6 @@ package Server;
 import DataModel.ModuleDataModel;
 import Database.Module;
 import Database.Teacher;
-import java.util.Date;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -28,7 +27,7 @@ public class ModuleSessionBean implements ModuleSessionBeanRemote {
     }
     
     @Override
-    public void addModule(String moduleID, String modulename, String requierments, String teacherID, String description, String goals, Date deadline){
+    public void addModule(String moduleID, String modulename, String requierments, String teacherID, String description, String goals, String deadline){
             
         try {
             

@@ -32,7 +32,7 @@ public class ModuleManager {
       
     }
     
-    public void addModule(String moduleID, String modulename, String requierments, String teacherID, String description, String goals, Date deadline){
+    public void addModule(String moduleID, String modulename, String requierments, String teacherID, String description, String goals, String deadline){
     
         this.lookupModuleSessionBeanRemote().addModule(moduleID, modulename, requierments, teacherID, description, goals, deadline);
     }

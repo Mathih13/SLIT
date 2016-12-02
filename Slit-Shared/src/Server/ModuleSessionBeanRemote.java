@@ -16,7 +16,7 @@ import javax.ejb.Remote;
 @Remote
 public interface ModuleSessionBeanRemote {
     
-    void addModule(String moduleID, String modulename, String requierments, String teacherID, String description, String goals, Date deadline);
+    void addModule(String moduleID, String modulename, String requierments, String teacherID, String description, String goals, String deadline);
     
     ModuleDataModel getModel(String id);
     

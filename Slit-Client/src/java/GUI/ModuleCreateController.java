@@ -9,7 +9,6 @@ import Framework.ModuleManager;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
-import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -45,12 +44,13 @@ public class ModuleCreateController implements Initializable {
     private Button AvbrytBtn;
     @FXML
     private Button LogOut;
-    ModuleManager module = new ModuleManager();
 
+
+   
+
+    ModuleManager module = new ModuleManager();
     @FXML
     private Label errorText;
-
-  
 
     /**
      * Initializes the controller class.
@@ -69,14 +69,14 @@ public class ModuleCreateController implements Initializable {
         
         if (this.ModuleIDText.getText() != null){
   
-            module.addModule("10", "Module5", "MASSE TEKST REQUERMENTS",  "002", "MASSE TEKST DESCRIPTION", "MASSE TEKST GOALS", "2017-09-05");
+            //module.addModule("11", "Module6", "MASSE TEKST REQUERMENTS",  "002", "MASSE TEKST DESCRIPTION", "MASSE TEKST GOALS", "2017-09-05");
 
-           //module.addModule((this.ModuleIDText.getText()), (this.ModuleNameText.getText()), (this.RequiermentsText.getText()), (this.TeacherIDText.getText()) ,(this.DescriptionText.getText()) , (this.GoalsText.getText()), (this.datePicker.getValue().toString()));
+           module.addModule(this.ModuleIDText.getText(), this.ModuleNameText.getText(), this.RequiermentsText.getText(), this.TeacherIDText.getText() ,this.DescriptionText.getText() , this.GoalsText.getText(), this.datePicker.getValue().toString());
            this.errorText.setText("Modul lagt til"); 
            }
         else{
             System.out.println("Noe gikk galt");
-        }
+        }   
     }
     
     }

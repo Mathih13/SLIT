@@ -2,3 +2,4 @@
 *.properties
 
 *.jar
+/Slit-Server/Slit-Server-ejb/dist/

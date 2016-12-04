@@ -19,7 +19,7 @@ public class ModuleDataModel implements java.io.Serializable {
     private String description;
     private String goals;
     private String teacherID;
-    private Date deadline;
+    private String deadline;
 
     public String getModuleID() {
         return moduleID;
@@ -69,11 +69,11 @@ public class ModuleDataModel implements java.io.Serializable {
         this.teacherID = teacherID;
     }
 
-    public Date getDeadline() {
+    public String getDeadline() {
         return deadline;
     }
 
-    public void setDeadline(Date deadline) {
+    public void setDeadline(String deadline) {
         this.deadline = deadline;
     }
     

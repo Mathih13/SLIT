@@ -35,7 +35,7 @@ public class ModuleSessionBean implements ModuleSessionBeanRemote {
             
             module.setModuleID(moduleID);
             module.setModuleName(modulename);
-            module.setRequierments(requierments);
+            module.setRequirements(requierments);
             module.setTeacherID(em.find(Teacher.class, teacherID));
             module.setDescription(description);
             module.setGoals(goals);
@@ -80,7 +80,7 @@ public class ModuleSessionBean implements ModuleSessionBeanRemote {
         moduleDataModel.setGoals(modul.getGoals());
         moduleDataModel.setModuleID(modul.getModuleID());
         moduleDataModel.setModuleName(modul.getModuleName());
-        moduleDataModel.setRequierments(modul.getRequierments());
+        moduleDataModel.setRequierments(modul.getRequirements());
             
         if(modul.getTeacherID() != null) {
             moduleDataModel.setTeacherID(modul.getTeacherID().getTeacherID());
@@ -111,7 +111,7 @@ public class ModuleSessionBean implements ModuleSessionBeanRemote {
         module.setGoals(moduleDataModel.getGoals());
         module.setModuleID(moduleDataModel.getModuleID());
         module.setModuleName(moduleDataModel.getModuleName());
-        module.setRequierments(moduleDataModel.getRequierments());
+        module.setRequirements(moduleDataModel.getRequierments());
         
         try{
             Teacher teacher = em.find(Teacher.class, moduleDataModel.getTeacherID());

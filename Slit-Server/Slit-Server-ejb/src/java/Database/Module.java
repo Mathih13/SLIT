@@ -6,22 +6,22 @@
 package Database;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.util.List;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -34,7 +34,8 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Module.findAll", query = "SELECT m FROM Module m"),
     @NamedQuery(name = "Module.findByModuleID", query = "SELECT m FROM Module m WHERE m.moduleID = :moduleID"),
     @NamedQuery(name = "Module.findByModuleName", query = "SELECT m FROM Module m WHERE m.moduleName = :moduleName"),
-    @NamedQuery(name = "Module.findByRequierments", query = "SELECT m FROM Module m WHERE m.requierments = :requierments"),
+    @NamedQuery(name = "Module.findByRequirements", query = "SELECT m FROM Module m WHERE m.requirements = :requirements"),
+    @NamedQuery(name = "Module.findByDescription", query = "SELECT m FROM Module m WHERE m.description = :description"),
     @NamedQuery(name = "Module.findByGoals", query = "SELECT m FROM Module m WHERE m.goals = :goals"),
     @NamedQuery(name = "Module.findByDeadline", query = "SELECT m FROM Module m WHERE m.deadline = :deadline")})
 public class Module implements Serializable {
@@ -50,21 +51,22 @@ public class Module implements Serializable {
     @Column(name = "moduleName")
     private String moduleName;
     @Size(max = 500)
-    @Column(name = "requierments")
-    private String requierments;
-    @Lob
-    @Size(max = 65535)
+    @Column(name = "requirements")
+    private String requirements;
+    @Size(max = 500)
     @Column(name = "description")
     private String description;
     @Size(max = 500)
     @Column(name = "goals")
     private String goals;
-    @Column(name = "deadline")
-    @Temporal(TemporalType.DATE)
-    private Date deadline;
+    @Size(max = 16)
+    @Column(name = "Deadline")
+    private String deadline;
     @JoinColumn(name = "teacherID", referencedColumnName = "teacherID")
     @ManyToOne
     private Teacher teacherID;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "module")
+    private List<Deliverable> deliverableList;
 
     public Module() {
     }
@@ -89,12 +91,12 @@ public class Module implements Serializable {
         this.moduleName = moduleName;
     }
 
-    public String getRequierments() {
-        return requierments;
+    public String getRequirements() {
+        return requirements;
     }
 
-    public void setRequierments(String requierments) {
-        this.requierments = requierments;
+    public void setRequirements(String requirements) {
+        this.requirements = requirements;
     }
 
     public String getDescription() {
@@ -113,11 +115,11 @@ public class Module implements Serializable {
         this.goals = goals;
     }
 
-    public Date getDeadline() {
+    public String getDeadline() {
         return deadline;
     }
 
-    public void setDeadline(Date deadline) {
+    public void setDeadline(String deadline) {
         this.deadline = deadline;
     }
 
@@ -127,6 +129,15 @@ public class Module implements Serializable {
 
     public void setTeacherID(Teacher teacherID) {
         this.teacherID = teacherID;
+    }
+
+    @XmlTransient
+    public List<Deliverable> getDeliverableList() {
+        return deliverableList;
+    }
+
+    public void setDeliverableList(List<Deliverable> deliverableList) {
+        this.deliverableList = deliverableList;
     }
 
     @Override
@@ -153,9 +164,4 @@ public class Module implements Serializable {
     public String toString() {
         return "Database.Module[ moduleID=" + moduleID + " ]";
     }
-
-    public void setDeadline(String deadline) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
 }

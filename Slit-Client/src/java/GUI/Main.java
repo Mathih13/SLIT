@@ -42,8 +42,6 @@ public class Main extends Application {
         ModuleManager moduleManager = new ModuleManager();
         
         launch(args);
-       
-        
     }
  
 }
